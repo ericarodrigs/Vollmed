@@ -9,7 +9,26 @@ import SwiftUI
 
 struct ScheduleAppointmentView: View {
     
+    let service = WebService()
+    var specialistId: String
+    
     @State private var selectedDate = Date()
+    @State private var showAlert = false
+    @State private var isAppointmentScheduled = false
+    
+    func scheduleAppointment() async {
+        do {
+            if let _ = try await service.scheduleAppointment(specialistId: specialistId, patientId: patientId, date: selectedDate.convertToString()) {
+                isAppointmentScheduled = true
+            } else {
+                isAppointmentScheduled = false
+            }
+        } catch {
+            isAppointmentScheduled = false
+            print("Ocorreu um erro ao agendar consulta \(error)")
+        }
+        showAlert = true
+    }
     
     var body: some View {
         VStack {
@@ -24,8 +43,9 @@ struct ScheduleAppointmentView: View {
                 .datePickerStyle(.graphical)
             
             Button {
-                print(selectedDate.convertToString())
-                print(selectedDate.convertToString().convertDateStringToReadableDate() )
+                Task {
+                    await scheduleAppointment()
+                }
             } label: {
                 ButtonView(text: "Agendar consulta")
             }
@@ -37,9 +57,16 @@ struct ScheduleAppointmentView: View {
         .onAppear {
             UIDatePicker.appearance().minuteInterval = 15
         }
+        .alert(isAppointmentScheduled ? "Sucesso" :  "Ops, algo deu errado", isPresented: $showAlert, presenting: isAppointmentScheduled) { isSchedule in
+                Button(action: {}, label: {
+                    Text("OK")
+                })
+        } message: { isSchedule in
+            isSchedule ? Text("A consulta foi agendada com sucesso") : Text("Houve um erro ao agendar a consulta, tente novamente ou entre em contato via telefone")
+            }
     }
 }
 
 #Preview {
-    ScheduleAppointmentView()
+    ScheduleAppointmentView(specialistId: "12345")
 }
