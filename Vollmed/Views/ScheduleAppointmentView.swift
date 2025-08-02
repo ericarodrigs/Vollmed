@@ -15,11 +15,17 @@ struct ScheduleAppointmentView: View {
     @State private var selectedDate = Date()
     @State private var showAlert = false
     @State private var isAppointmentScheduled = false
+    @State private var message: String?
     
     func scheduleAppointment() async {
         do {
-            if let _ = try await service.scheduleAppointment(specialistId: specialistId, patientId: patientId, date: selectedDate.convertToString()) {
+            if let response = try await service.scheduleAppointment(specialistId: specialistId, patientId: patientId, date: selectedDate.convertToString()) {
                 isAppointmentScheduled = true
+                
+                if(response.message != nil){
+                    isAppointmentScheduled = false
+                    message = response.message
+                }
             } else {
                 isAppointmentScheduled = false
             }
@@ -62,7 +68,7 @@ struct ScheduleAppointmentView: View {
                     Text("OK")
                 })
         } message: { isSchedule in
-            isSchedule ? Text("A consulta foi agendada com sucesso") : Text("Houve um erro ao agendar a consulta, tente novamente ou entre em contato via telefone")
+            isSchedule ? Text("A consulta foi agendada com sucesso") : Text(message ?? "Houve um erro ao agendar a consulta, tente novamente ou entre em contato via telefone")
             }
     }
 }

@@ -8,11 +8,13 @@
 import Foundation
 
 struct ScheduleAppointmentResponse: Codable, Identifiable {
-    let id: String
-    let specialist: String
-    let patient: String
-    let date: String
+    let id: String?
+    let specialist: String?
+    let patient: String?
+    let date: String?
     let reasonToCancel: String?
+    let status: Int?
+    let message: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -20,6 +22,8 @@ struct ScheduleAppointmentResponse: Codable, Identifiable {
         case patient = "paciente"
         case date = "data"
         case reasonToCancel = "motivoCancelamento"
+        case status
+        case message
     }
 }
 
