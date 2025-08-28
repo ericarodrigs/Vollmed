@@ -8,16 +8,19 @@
 import Foundation
 
 extension String {
-    func convertDateStringToReadableDate() -> String {
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss:SSSZ"
+    func convertDateStringToReadableDate() -> String? {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         
-        if let date = inputFormatter.date(from: self) {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd/MM/yyyy 'às' HH:mm"
-            return dateFormatter.string(from: date)
+        guard let date = isoFormatter.date(from: self) else {
+            return nil
         }
         
-        return ""
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "dd/MM/yyyy 'às' HH:mm"
+        displayFormatter.locale = Locale(identifier: "pt_BR")
+        displayFormatter.timeZone = TimeZone.current
+        
+        return displayFormatter.string(from: date)
     }
 }

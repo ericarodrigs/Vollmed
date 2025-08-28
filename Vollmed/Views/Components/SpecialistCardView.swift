@@ -44,7 +44,7 @@ struct SpecialistCardView: View {
                         .bold()
                     Text(specialist.specialty)
                     if let appointment {
-                        Text(appointment.date.convertDateStringToReadableDate())
+                        Text(appointment.date.convertDateStringToReadableDate() ?? "")
                             .bold()
                     }
                 }
@@ -52,11 +52,11 @@ struct SpecialistCardView: View {
             
             if let appointment {
                 HStack {
-                    Button (action: {
-                        print("Remarcar")
-                    }, label: {
+                    NavigationLink {
+                        ScheduleAppointmentView(specialistId: appointment.specialist.id, isRescheduleAppointment: true, appointmentId: appointment.id)
+                    } label: {
                         ButtonView(text: "Remarcar")
-                    })
+                    }
                     
                     Button (action: {
                         print("Cancelar")
