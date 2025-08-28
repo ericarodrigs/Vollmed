@@ -58,11 +58,12 @@ struct SpecialistCardView: View {
                         ButtonView(text: "Remarcar")
                     }
                     
-                    Button (action: {
-                        print("Cancelar")
-                    }, label: {
+                    NavigationLink {
+                        CancelAppointmentView(appointmentId: appointment.id)
+                    } label: {
                         ButtonView(text: "Cancelar", buttonType: .cancel)
-                    })
+                    }
+                    
                 }
             } else {
                 NavigationLink {

@@ -16,6 +16,7 @@
 		48539DEF2AB0F47C005BD7C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48539DEE2AB0F47C005BD7C9 /* ContentView.swift */; };
 		48539DF12AB0F47D005BD7C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48539DF02AB0F47D005BD7C9 /* Assets.xcassets */; };
 		48539DF42AB0F47D005BD7C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48539DF32AB0F47D005BD7C9 /* Preview Assets.xcassets */; };
+		D81187072E60FF6D0086F1BE /* CancelAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81187062E60FF6D0086F1BE /* CancelAppointmentView.swift */; };
 		D8130F5B2E3E272A00E9A254 /* ScheduleAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8130F5A2E3E272A00E9A254 /* ScheduleAppointmentView.swift */; };
 		D8130F5E2E3E320A00E9A254 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8130F5D2E3E320A00E9A254 /* Date+.swift */; };
 		D8130F602E3E339B00E9A254 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8130F5F2E3E339B00E9A254 /* String+.swift */; };
@@ -35,6 +36,7 @@
 		48539DEE2AB0F47C005BD7C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48539DF02AB0F47D005BD7C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48539DF32AB0F47D005BD7C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D81187062E60FF6D0086F1BE /* CancelAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelAppointmentView.swift; sourceTree = "<group>"; };
 		D8130F5A2E3E272A00E9A254 /* ScheduleAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAppointmentView.swift; sourceTree = "<group>"; };
 		D8130F5D2E3E320A00E9A254 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D8130F5F2E3E339B00E9A254 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				484BEF042AB0F7970033C07A /* HomeView.swift */,
 				D8130F5A2E3E272A00E9A254 /* ScheduleAppointmentView.swift */,
 				D8130F632E3E53F300E9A254 /* MyAppointmentsView.swift */,
+				D81187062E60FF6D0086F1BE /* CancelAppointmentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				48539DEF2AB0F47C005BD7C9 /* ContentView.swift in Sources */,
 				D8130F602E3E339B00E9A254 /* String+.swift in Sources */,
 				484BEF052AB0F7970033C07A /* HomeView.swift in Sources */,
+				D81187072E60FF6D0086F1BE /* CancelAppointmentView.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
 				484BEF032AB0F7080033C07A /* SpecialistCardView.swift in Sources */,

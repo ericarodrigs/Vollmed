@@ -1,0 +1,60 @@
+//
+//  CancelAppointmentView.swift
+//  Vollmed
+//
+//  Created by Erica Rodrigues on 28/08/25.
+//
+
+import SwiftUI
+
+struct CancelAppointmentView: View {
+    var appointmentId: String
+    let service = WebService()
+     
+    @State private var reasonToCancel = ""
+    
+    func cancelAppointment() async {
+        do {
+            if try await service.cancelAppointment(appointmentId: appointmentId, reasonToCancel: reasonToCancel) {
+                print("Consulta cancelada com sucesso")
+            }
+        } catch {
+            print("Ocorreu um erro ao cancelar a consulta \(error)")
+        }
+    }
+    
+    var body: some View {
+        VStack(spacing: 16.0) {
+            Text("Conte-nos o motivo do cancelamento da sua consulta")
+                .font(.title3)
+                .bold()
+                .foregroundColor(.accent)
+                .padding(.top)
+                .multilineTextAlignment(.center)
+            
+            TextEditor(text: $reasonToCancel)
+                .padding()
+                .font(.title3)
+                .foregroundStyle(.accent)
+                .scrollContentBackground(.hidden)
+                .background(Color(.lightBlue).opacity(0.15))
+                .cornerRadius(16.0)
+                .frame(maxHeight: 300)
+            
+            Button(action: {
+                Task {
+                    await cancelAppointment()
+                }
+            }) {
+                ButtonView(text: "Cancelar consulta", buttonType: .cancel)
+            }
+        }
+        .padding()
+        .navigationTitle("Cancelar consulta")
+        .navigationBarTitleDisplayMode(.large)
+    }
+}
+
+#Preview {
+    CancelAppointmentView(appointmentId: "123")
+}
