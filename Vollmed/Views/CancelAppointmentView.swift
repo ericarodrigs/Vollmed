@@ -10,17 +10,22 @@ import SwiftUI
 struct CancelAppointmentView: View {
     var appointmentId: String
     let service = WebService()
-     
+    
     @State private var reasonToCancel = ""
+    @State private var showAlert = false
+    @State private var isAppointmentCanceled = false
     
     func cancelAppointment() async {
         do {
             if try await service.cancelAppointment(appointmentId: appointmentId, reasonToCancel: reasonToCancel) {
                 print("Consulta cancelada com sucesso")
+                isAppointmentCanceled = true
             }
         } catch {
             print("Ocorreu um erro ao cancelar a consulta \(error)")
+            isAppointmentCanceled = false
         }
+        showAlert = true
     }
     
     var body: some View {
@@ -52,6 +57,13 @@ struct CancelAppointmentView: View {
         .padding()
         .navigationTitle("Cancelar consulta")
         .navigationBarTitleDisplayMode(.large)
+        .alert(isAppointmentCanceled ? "Sucesso" : "Ops, algo deu errado", isPresented: $showAlert, presenting: isAppointmentCanceled) { isCanceled in
+            Button(action: {}, label: {
+                Text("OK")
+            })
+        } message: { isCanceled in
+            isCanceled ? Text("A consulta foi cancelada com sucesso") : Text("Houve um erro ao cancelar a consulta, tente novamente ou entre em contato via telefone")
+        }
     }
 }
 
