@@ -75,6 +75,20 @@
                   startingLineNumber = "20"
                   endingLineNumber = "20">
                </Location>
+               <Location
+                  uuid = "52646175-C3E3-4B86-994E-9574A44DCAE1 - 96a05f9255676ef2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Vollmed.SignInView.loginPatient() async -&gt; ()"
+                  moduleName = "Vollmed.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ericarodrigues/Documents/Projetos/Vollmed/Vollmed/Views/SignInView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

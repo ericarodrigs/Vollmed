@@ -17,8 +17,8 @@ struct SignInView: View {
 
     func loginPatient() async {
         do {
-            if let _ = try await service.loginPatient(email: email, password: password) {
-                print("Login realizado com sucesso!")
+            if let response = try await service.loginPatient(email: email, password: password) {
+                UserDefaultsHelper.save(value: response.token, key: "token")
             } else {
                 showAlert = true
             }
