@@ -8,10 +8,26 @@
 import SwiftUI
 
 struct SignInView: View {
+    
+    let service = WebService()
 
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showAlert: Bool = false
 
+    func loginPatient() async {
+        do {
+            if let _ = try await service.loginPatient(email: email, password: password) {
+                print("Login realizado com sucesso!")
+            } else {
+                showAlert = true
+            }
+        } catch {
+            showAlert = true
+            print("Ocorreu um erro ao logar o paciente \(error)")
+        }
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16.0) {
             Image(.logo)
@@ -53,7 +69,9 @@ struct SignInView: View {
                 .cornerRadius(14.0)
             
             Button (action: {
-                //
+                Task {
+                    await loginPatient()
+                }
             }, label: {
                 ButtonView(text: "Entrar")
             })
@@ -68,6 +86,15 @@ struct SignInView: View {
         }
         .padding()
         .navigationBarBackButtonHidden()
+        .alert("Ops, deu algo errado!", isPresented: $showAlert) {
+            Button(action: {
+                //
+            }, label: {
+                Text("OK")
+            })
+        } message: {
+            Text("Houve um erro ao logar o paciente. Por favor, tente novamente.")
+        }
     }
 }
 

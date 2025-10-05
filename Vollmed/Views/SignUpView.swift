@@ -18,6 +18,7 @@ struct SignUpView: View {
     @State private var password: String = ""
     @State private var showAlert: Bool = false
     @State private var isPatientRegistered: Bool = false
+    @State private var navigateToSingInView: Bool = false
     
     let healthPlans: [String] = [
         "Amil", "Unimed", "Bradesco", "SulAmerica", "Hapvida", "Notredame", "São Francisco", "Outro"
@@ -151,13 +152,17 @@ struct SignUpView: View {
         .navigationBarBackButtonHidden()
         .padding()
         .alert(isPatientRegistered ? "Sucesso!" : "Ops, deu algo errado!", isPresented: $showAlert, presenting: $isPatientRegistered) { _ in
-            Button(action: {}, label: {
+            Button(action: {
+                navigateToSingInView = true
+            }, label: {
                 Text("OK")
             })
         } message: { _ in
             isPatientRegistered ? Text("O paciente foi criado com sucesso!") : Text("Houve um erro ao cadastrar o paciente. Por favor, tente novamente.")
         }
-
+        .navigationDestination(isPresented: $navigateToSingInView) {
+            SignInView()
+        }
     }
 }
 
