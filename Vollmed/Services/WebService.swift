@@ -13,6 +13,32 @@ struct WebService {
     
     private let baseURL = "http://localhost:3000"
     
+    func registerPatient(patient: Patient) async throws -> Patient? {
+        let endpoint = "\(baseURL)/paciente"
+        
+        guard let url = URL(string: endpoint) else {
+            print("Erro na URL!")
+            return nil
+        }
+        
+        let jsonData = try JSONEncoder().encode(patient)
+        print(String(data: jsonData, encoding: .utf8)!)
+       
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        print(String(data: data, encoding: .utf8) ?? "Resposta vazia")
+        
+        let patient = try JSONDecoder().decode(Patient.self, from: data)
+        
+        return patient
+    }
+    
     func cancelAppointment(appointmentId: String, reasonToCancel: String) async throws -> Bool {
         let endpoint = "\(baseURL)/consulta/\(appointmentId)"
         

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    let service = WebService()
     
     @State private var name: String = ""
     @State private var email: String = ""
@@ -15,6 +16,8 @@ struct SignUpView: View {
     @State private var phoneNumber: String = ""
     @State private var healthPlan: String
     @State private var password: String = ""
+    @State private var showAlert: Bool = false
+    @State private var isPatientRegistered: Bool = false
     
     let healthPlans: [String] = [
         "Amil", "Unimed", "Bradesco", "SulAmerica", "Hapvida", "Notredame", "São Francisco", "Outro"
@@ -24,9 +27,25 @@ struct SignUpView: View {
         self.healthPlan = healthPlans[0]
     }
     
+    func registerPatient() async {
+        let patient = Patient(id: nil, cpf: cpf, name: name, email: email, password: password, phoneNumber: phoneNumber, healthPlan: healthPlan)
+        do {
+            if let _ = try await service.registerPatient(patient: patient) {
+                isPatientRegistered = true
+                print("Paciente foi cadastrado com sucesso!")
+            } else {
+                isPatientRegistered = false
+            }
+        } catch {
+            isPatientRegistered = false
+            print("Ocorreu um erro ao cadastrar o paciente \(error)")
+        }
+        showAlert = true
+    }
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStackLayout(alignment: .leading, spacing: 16.0) {
+            VStack(alignment: .leading, spacing: 16.0) {
                 Image(.logo)
                     .resizable()
                     .scaledToFit()
@@ -112,7 +131,9 @@ struct SignUpView: View {
                 }
                 
                 Button (action: {
-                    //
+                    Task {
+                        await registerPatient()
+                    }
                 }, label: {
                     ButtonView(text: "Cadastrar")
                 })
@@ -129,6 +150,14 @@ struct SignUpView: View {
         }
         .navigationBarBackButtonHidden()
         .padding()
+        .alert(isPatientRegistered ? "Sucesso!" : "Ops, deu algo errado!", isPresented: $showAlert, presenting: $isPatientRegistered) { _ in
+            Button(action: {}, label: {
+                Text("OK")
+            })
+        } message: { _ in
+            isPatientRegistered ? Text("O paciente foi criado com sucesso!") : Text("Houve um erro ao cadastrar o paciente. Por favor, tente novamente.")
+        }
+
     }
 }
 
