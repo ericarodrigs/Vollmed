@@ -28,6 +28,7 @@
 		D8E1D50D2E91D4C600F62B64 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D50C2E91D4C600F62B64 /* Patient.swift */; };
 		D8E1D50F2E932D5E00F62B64 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D50E2E932D5E00F62B64 /* Login.swift */; };
 		D8E1D5112E93374500F62B64 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5102E93374500F62B64 /* UserDefaultsHelper.swift */; };
+		D8E1D5132E9471C600F62B64 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5122E9471C600F62B64 /* KeychainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		D8E1D50C2E91D4C600F62B64 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		D8E1D50E2E932D5E00F62B64 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		D8E1D5102E93374500F62B64 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		D8E1D5122E9471C600F62B64 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				484BEEFE2AB0F59D0033C07A /* WebService.swift */,
 				D8E1D5102E93374500F62B64 /* UserDefaultsHelper.swift */,
+				D8E1D5122E9471C600F62B64 /* KeychainHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				D8E1D50D2E91D4C600F62B64 /* Patient.swift in Sources */,
 				D8130F662E427D7400E9A254 /* Appointment.swift in Sources */,
 				D8130F5E2E3E320A00E9A254 /* Date+.swift in Sources */,
+				D8E1D5132E9471C600F62B64 /* KeychainHelper.swift in Sources */,
 				D8130F622E3E362F00E9A254 /* ScheduleAppointment.swift in Sources */,
 				48539DEF2AB0F47C005BD7C9 /* ContentView.swift in Sources */,
 				D8130F602E3E339B00E9A254 /* String+.swift in Sources */,

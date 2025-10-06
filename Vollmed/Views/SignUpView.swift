@@ -33,7 +33,7 @@ struct SignUpView: View {
         do {
             if let response = try await service.registerPatient(patient: patient) {
                 isPatientRegistered = true
-                UserDefaultsHelper.save(value: response.id ?? "", key: "patient-id")
+                KeychainHelper.save(value: response.id ?? "", key: "app-vollmed-patient-id")
                 print("Paciente foi cadastrado com sucesso!")
             } else {
                 isPatientRegistered = false
