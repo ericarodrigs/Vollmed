@@ -10,6 +10,7 @@ import UIKit
 struct WebService {
     
     private let baseURL = "http://localhost:3000"
+    var authManager = AuthenticationManager.shared
     
     func logout() async throws -> Bool {
         let endpoint = "\(baseURL)/auth/logout"
@@ -19,7 +20,7 @@ struct WebService {
             return false
         }
         
-        guard let token = KeychainHelper.get(for: "app-vollmed-token") else {
+        guard let token = authManager.token else {
             print("Token não informado")
             return false
         }
@@ -99,7 +100,7 @@ struct WebService {
             return false
         }
         
-        guard let token = KeychainHelper.get(for: "app-vollmed-token") else {
+        guard let token = authManager.token else {
                     print("Token não informado")
                     return false
                 }
@@ -130,7 +131,7 @@ struct WebService {
             return nil
         }
         
-        guard let token = KeychainHelper.get(for: "app-vollmed-token") else {
+        guard let token = authManager.token else {
                     print("Token não informado")
                     return nil
                 }
@@ -157,7 +158,7 @@ struct WebService {
             return nil
         }
         
-        guard let token = KeychainHelper.get(for: "app-vollmed-token") else {
+        guard let token = authManager.token else {
                     print("Token não informado")
                     return nil
                 }
@@ -183,7 +184,7 @@ struct WebService {
             return nil
         }
         
-        guard let token = KeychainHelper.get(for: "app-vollmed-token") else {
+        guard let token = authManager.token else {
             print("Token não informado")
             return nil
         }
@@ -191,6 +192,7 @@ struct WebService {
         let appointment = ScheduleAppointmentRequest(specialist: specialistId, patient: patientId, date: date)
         
         let jsonData = try JSONEncoder().encode(appointment)
+        print(String(data: jsonData, encoding: .utf8)!)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -199,6 +201,8 @@ struct WebService {
         
         let (data, _) = try await URLSession.shared.data(for: request)
         let appointmentResponse = try JSONDecoder().decode(ScheduleAppointmentResponse.self, from: data)
+        print(String(data: data, encoding: .utf8) ?? "Resposta vazia")
+        
         return appointmentResponse
     }
     

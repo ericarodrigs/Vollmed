@@ -10,6 +10,7 @@ import SwiftUI
 struct ScheduleAppointmentView: View {
     
     let service = WebService()
+    var authManager = AuthenticationManager.shared
     
     var specialistId: String
     var isRescheduleAppointment: Bool
@@ -51,7 +52,7 @@ struct ScheduleAppointmentView: View {
     }
     
     func scheduleAppointment() async {
-        guard let patientId = KeychainHelper.get(for: "app-vollmed-patient-id") else {
+        guard let patientId = authManager.patientId else {
             return
         }
         do {
@@ -86,7 +87,11 @@ struct ScheduleAppointmentView: View {
             
             Button {
                 Task {
-                    isRescheduleAppointment ? await rescheduleAppointment() : await scheduleAppointment()
+                    if isRescheduleAppointment {
+                        await rescheduleAppointment()
+                    } else {
+                        await scheduleAppointment()
+                    }
                 }
             } label: {
                 ButtonView(text: isRescheduleAppointment ? "Reagendar consulta" : "Agendar consulta")

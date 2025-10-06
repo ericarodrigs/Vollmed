@@ -10,11 +10,12 @@ import SwiftUI
 struct MyAppointmentsView: View {
     
     let service = WebService()
+    var authManager = AuthenticationManager.shared
     
     @State private var appointments: [Appointment] = []
     
     func getAllAppointmentsFromPatient() async {
-        guard let patientId = KeychainHelper.get(for: "app-vollmed-patient-id") else {
+        guard let patientId = authManager.patientId else {
             return
         }
         do {

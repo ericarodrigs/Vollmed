@@ -15,11 +15,13 @@ struct SignInView: View {
     @State private var password: String = ""
     @State private var showAlert: Bool = false
     @State private var showLoading: Bool = false
+    
+    var authManager = AuthenticationManager.shared
 
     func loginPatient() async {
         do {
             if let response = try await service.loginPatient(email: email, password: password) {
-                KeychainHelper.save(value: response.token, key: "app-vollmed-token")
+                authManager.saveToken(token: response.token)
             } else {
                 showAlert = true
             }

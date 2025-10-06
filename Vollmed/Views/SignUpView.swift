@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     let service = WebService()
+    var authManager = AuthenticationManager.shared
     
     @State private var name: String = ""
     @State private var email: String = ""
@@ -33,7 +34,7 @@ struct SignUpView: View {
         do {
             if let response = try await service.registerPatient(patient: patient) {
                 isPatientRegistered = true
-                KeychainHelper.save(value: response.id ?? "", key: "app-vollmed-patient-id")
+                authManager.savePatientId(id: response.id ?? "")
                 print("Paciente foi cadastrado com sucesso!")
             } else {
                 isPatientRegistered = false
