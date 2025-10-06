@@ -31,8 +31,9 @@ struct SignUpView: View {
     func registerPatient() async {
         let patient = Patient(id: nil, cpf: cpf, name: name, email: email, password: password, phoneNumber: phoneNumber, healthPlan: healthPlan)
         do {
-            if let _ = try await service.registerPatient(patient: patient) {
+            if let response = try await service.registerPatient(patient: patient) {
                 isPatientRegistered = true
+                UserDefaultsHelper.save(value: response.id ?? "", key: "patient-id")
                 print("Paciente foi cadastrado com sucesso!")
             } else {
                 isPatientRegistered = false
