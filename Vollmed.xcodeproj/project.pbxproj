@@ -30,6 +30,15 @@
 		D8E1D5112E93374500F62B64 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5102E93374500F62B64 /* UserDefaultsHelper.swift */; };
 		D8E1D5132E9471C600F62B64 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5122E9471C600F62B64 /* KeychainHelper.swift */; };
 		D8E1D5162E94749000F62B64 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5152E94749000F62B64 /* AuthenticationManager.swift */; };
+		D8E1D5192E95BE3200F62B64 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5182E95BE3200F62B64 /* HomeViewModel.swift */; };
+		D8E1D51F2E95C45800F62B64 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D51E2E95C45800F62B64 /* Endpoint.swift */; };
+		D8E1D5222E95C5BD00F62B64 /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5212E95C5BD00F62B64 /* RequestMethod.swift */; };
+		D8E1D5242E95C6C200F62B64 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5232E95C6C200F62B64 /* RequestError.swift */; };
+		D8E1D5262E95C85A00F62B64 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5252E95C85A00F62B64 /* HTTPClient.swift */; };
+		D8E1D5282E95D31A00F62B64 /* HomeEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5272E95D31A00F62B64 /* HomeEndpoint.swift */; };
+		D8E1D52A2E95D53A00F62B64 /* HomeNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5292E95D53A00F62B64 /* HomeNetworkingService.swift */; };
+		D8E1D52C2E98653B00F62B64 /* AuthenticationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D52B2E98653B00F62B64 /* AuthenticationEndpoint.swift */; };
+		D8E1D52E2E98670600F62B64 /* AuthenticationNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +66,15 @@
 		D8E1D5102E93374500F62B64 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D8E1D5122E9471C600F62B64 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		D8E1D5152E94749000F62B64 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		D8E1D5182E95BE3200F62B64 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D8E1D51E2E95C45800F62B64 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D8E1D5212E95C5BD00F62B64 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		D8E1D5232E95C6C200F62B64 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		D8E1D5252E95C85A00F62B64 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		D8E1D5272E95D31A00F62B64 /* HomeEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEndpoint.swift; sourceTree = "<group>"; };
+		D8E1D5292E95D53A00F62B64 /* HomeNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkingService.swift; sourceTree = "<group>"; };
+		D8E1D52B2E98653B00F62B64 /* AuthenticationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpoint.swift; sourceTree = "<group>"; };
+		D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +154,11 @@
 			children = (
 				D8E1D5142E94747D00F62B64 /* Managers */,
 				D8130F5C2E3E31E500E9A254 /* Extensions */,
+				D8E1D5172E95BE1400F62B64 /* ViewModels */,
 				484BEEFB2AB0F56C0033C07A /* Services */,
 				484BEEFA2AB0F5680033C07A /* Models */,
 				484BEEF82AB0F55F0033C07A /* Views */,
+				D8E1D51A2E95C33F00F62B64 /* Networking */,
 				48539DEC2AB0F47C005BD7C9 /* VollmedApp.swift */,
 				48539DEE2AB0F47C005BD7C9 /* ContentView.swift */,
 				48539DF02AB0F47D005BD7C9 /* Assets.xcassets */,
@@ -170,6 +190,53 @@
 				D8E1D5152E94749000F62B64 /* AuthenticationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D8E1D5172E95BE1400F62B64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D5182E95BE3200F62B64 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D8E1D51A2E95C33F00F62B64 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D51B2E95C34D00F62B64 /* Base */,
+				D8E1D51C2E95C35600F62B64 /* Endpoints */,
+				D8E1D51D2E95C35E00F62B64 /* Services */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D8E1D51B2E95C34D00F62B64 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D51E2E95C45800F62B64 /* Endpoint.swift */,
+				D8E1D5212E95C5BD00F62B64 /* RequestMethod.swift */,
+				D8E1D5232E95C6C200F62B64 /* RequestError.swift */,
+				D8E1D5252E95C85A00F62B64 /* HTTPClient.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D8E1D51C2E95C35600F62B64 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D5272E95D31A00F62B64 /* HomeEndpoint.swift */,
+				D8E1D52B2E98653B00F62B64 /* AuthenticationEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		D8E1D51D2E95C35E00F62B64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D5292E95D53A00F62B64 /* HomeNetworkingService.swift */,
+				D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E1D50D2E91D4C600F62B64 /* Patient.swift in Sources */,
+				D8E1D5192E95BE3200F62B64 /* HomeViewModel.swift in Sources */,
+				D8E1D5262E95C85A00F62B64 /* HTTPClient.swift in Sources */,
 				D8130F662E427D7400E9A254 /* Appointment.swift in Sources */,
 				D8130F5E2E3E320A00E9A254 /* Date+.swift in Sources */,
 				D8E1D5132E9471C600F62B64 /* KeychainHelper.swift in Sources */,
@@ -252,17 +321,24 @@
 				484BEF052AB0F7970033C07A /* HomeView.swift in Sources */,
 				D81187072E60FF6D0086F1BE /* CancelAppointmentView.swift in Sources */,
 				D8E1D5162E94749000F62B64 /* AuthenticationManager.swift in Sources */,
+				D8E1D52C2E98653B00F62B64 /* AuthenticationEndpoint.swift in Sources */,
+				D8E1D5242E95C6C200F62B64 /* RequestError.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
+				D8E1D5282E95D31A00F62B64 /* HomeEndpoint.swift in Sources */,
 				D8E1D5112E93374500F62B64 /* UserDefaultsHelper.swift in Sources */,
+				D8E1D52A2E95D53A00F62B64 /* HomeNetworkingService.swift in Sources */,
 				484BEF012AB0F6090033C07A /* ButtonView.swift in Sources */,
 				D8E1D5092E918C6E00F62B64 /* SignInView.swift in Sources */,
 				484BEF032AB0F7080033C07A /* SpecialistCardView.swift in Sources */,
+				D8E1D5222E95C5BD00F62B64 /* RequestMethod.swift in Sources */,
 				484BEEFF2AB0F59D0033C07A /* WebService.swift in Sources */,
+				D8E1D51F2E95C45800F62B64 /* Endpoint.swift in Sources */,
 				D8E1D50B2E91952E00F62B64 /* SignUpView.swift in Sources */,
 				48539DED2AB0F47C005BD7C9 /* VollmedApp.swift in Sources */,
 				D8E1D50F2E932D5E00F62B64 /* Login.swift in Sources */,
 				D8130F642E3E53F300E9A254 /* MyAppointmentsView.swift in Sources */,
 				D8130F5B2E3E272A00E9A254 /* ScheduleAppointmentView.swift in Sources */,
+				D8E1D52E2E98670600F62B64 /* AuthenticationNetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
