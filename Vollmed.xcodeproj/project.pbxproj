@@ -39,6 +39,8 @@
 		D8E1D52A2E95D53A00F62B64 /* HomeNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5292E95D53A00F62B64 /* HomeNetworkingService.swift */; };
 		D8E1D52C2E98653B00F62B64 /* AuthenticationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D52B2E98653B00F62B64 /* AuthenticationEndpoint.swift */; };
 		D8E1D52E2E98670600F62B64 /* AuthenticationNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */; };
+		D8E1D5312E9DA45600F62B64 /* SnackBarErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5302E9DA45600F62B64 /* SnackBarErrorView.swift */; };
+		D8E1D5332E9DAB2B00F62B64 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E1D5322E9DAB2B00F62B64 /* UIApplication+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		D8E1D5292E95D53A00F62B64 /* HomeNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkingService.swift; sourceTree = "<group>"; };
 		D8E1D52B2E98653B00F62B64 /* AuthenticationEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEndpoint.swift; sourceTree = "<group>"; };
 		D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationNetworkingService.swift; sourceTree = "<group>"; };
+		D8E1D5302E9DA45600F62B64 /* SnackBarErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBarErrorView.swift; sourceTree = "<group>"; };
+		D8E1D5322E9DAB2B00F62B64 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		484BEEF82AB0F55F0033C07A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D8E1D52F2E9DA43F00F62B64 /* SnackBarView */,
 				484BEEF92AB0F5630033C07A /* Components */,
 				484BEF042AB0F7970033C07A /* HomeView.swift */,
 				D8130F5A2E3E272A00E9A254 /* ScheduleAppointmentView.swift */,
@@ -180,6 +185,7 @@
 			children = (
 				D8130F5D2E3E320A00E9A254 /* Date+.swift */,
 				D8130F5F2E3E339B00E9A254 /* String+.swift */,
+				D8E1D5322E9DAB2B00F62B64 /* UIApplication+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -237,6 +243,14 @@
 				D8E1D52D2E98670600F62B64 /* AuthenticationNetworkingService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D8E1D52F2E9DA43F00F62B64 /* SnackBarView */ = {
+			isa = PBXGroup;
+			children = (
+				D8E1D5302E9DA45600F62B64 /* SnackBarErrorView.swift */,
+			);
+			path = SnackBarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +335,8 @@
 				484BEF052AB0F7970033C07A /* HomeView.swift in Sources */,
 				D81187072E60FF6D0086F1BE /* CancelAppointmentView.swift in Sources */,
 				D8E1D5162E94749000F62B64 /* AuthenticationManager.swift in Sources */,
+				D8E1D5332E9DAB2B00F62B64 /* UIApplication+.swift in Sources */,
+				D8E1D5312E9DA45600F62B64 /* SnackBarErrorView.swift in Sources */,
 				D8E1D52C2E98653B00F62B64 /* AuthenticationEndpoint.swift in Sources */,
 				D8E1D5242E95C6C200F62B64 /* RequestError.swift in Sources */,
 				484BEEFD2AB0F5750033C07A /* Specialist.swift in Sources */,
